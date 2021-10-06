@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Books</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 style="color: brown;">Books</h1>
+    <% if (books.length) {
+        %><ul>
+          <% books.forEach((book) => {
+            %>
+              <li><%= book.name %></li>
+            <%
+          }) %>
+        </ul><%
+    } %>
+
+  </body>
+</html>
