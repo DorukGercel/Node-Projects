@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/assets/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <%- include('./navbar.ejs')%>
+    <div class="main-div">
+      <h1 class="main-title"> <%= page_title %> </h1>
+          <% labels.forEach((label) => {
+            %>
+        <label for=<%=label.tag%> class="form-label"><%=label.name%>:</label>
+        <input type="text" id=<%=label.tag%> name=<%=label.tag%> ><br><br>
+        <% })
+        %>
+        <button id="submitbtn" class="submit-btn" onclick="buttonFunc()">Submit</button>
+      <script>
+        const method = <%= method %>;
+        let buttonFunc;
+        if(method === 1) {
+          buttonFunc = function() {
+            $.ajax({
+              url: '/projects',
+              type: 'GET',
+              data: {
+                name: $("#name").val()
+              },
+              success: (html) => {
+                $("html").html(html);
+              }
+            });
+            console.log($("#name").val());
+          };
+        } else if(method === 2) {
+          buttonFunc = function() {
+            $.ajax({
+              url: '/projects',
+              type: 'POST',
+              data: {
+                name: $("#name").val(),
+                location: $("#location").val()
+              },
+              success: (html) => {
+                $("html").html(html);
+              }
+            });
+          };
+        } else if(method === 3) {
+          buttonFunc = function() {
+            $.ajax({
+              url: '/projects',
+              type: 'PUT',
+              data: {
+                name: $("#name").val(),
+                location: $("#location").val()
+              },
+              success: (html) => {
+                $("html").html(html);
+              }
+            });
+          };
+        } else if(method === 4) {
+          buttonFunc = function() {
+            $.ajax({
+              url: '/projects',
+              type: 'DELETE',
+              data: {
+                name: $("#name").val()
+              },
+              success: (html) => {
+                $("html").html(html);
+              }
+            });
+          };
+        }
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/assets/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./navbar.ejs')%>
+    <div class="main-div">
+      <h1 class="main-title"> <%= page_title %> </h1>
+      <% if (projects.length) {
+        %><ul>
+          <% projects.forEach((project) => {
+            %>
+              <li><strong>Name: </strong><%= project.name %>  <---> <strong>Location: </strong><%= project.location %> </li>
+            <%
+          }) %>
+        </ul><%
+    } %>
+  </div>
+  </body>
+</html>
