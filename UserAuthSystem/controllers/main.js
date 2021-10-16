@@ -1,6 +1,6 @@
 const MainController = {
     async getPage(req, res) {
-      res.render('index', { title: 'User Auth System' });
+      res.render('main', { title: 'User Auth System' });
     }
 }
 
