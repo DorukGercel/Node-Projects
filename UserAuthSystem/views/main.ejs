@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./navbar.ejs')%>
+    <div class="main-div">
+      <h1 class="main-title"><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <p>This is a simple user auht system which is used to register and login users.<br/><br/>
+        This project uses <strong>MongoDB</strong> and <strong>Mongoose</strong> for managing data. <br/><br/>
+        Also it uses bcrypt to encrypt and match passwords.</p>
+        Enjoy.
+    </div>
+  </body>
+</html>
