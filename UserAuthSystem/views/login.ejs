@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./navbar.ejs')%>
+    <div class="main-div">
+      <h1 class="main-title">Login</h1>
+      <% if(err) { %>
+        <h3 class="error-msg"><%= message %></h1>
+      <% } %>
+      <form action="/login" method="post">
+          <label for="name" class="form-label">Username:</label><input type="text" id="name" name="name" required><br>
+          <label for="password" class="form-label">Password:</label><input type="password" id="password" name="password" required><br><br>
+          <input type="submit" value="Submit" class="submit-btn"><br/><br/>
+          <a href="/register">Don't have an account?</a>
+      </form>
+    </div>
+  </body>
+</html>
